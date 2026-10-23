@@ -86,11 +86,3 @@ Source is private.
 
 - [aruco-tag-maker](https://github.com/evilhobo1911/aruco-tag-maker) — the tags (open source)
 - [robo-prober](https://github.com/evilhobo1911/robo-prober) — safe servo control and range of motion (open source)
-
-## How this was built
-AI is used here as a tool to speed up implementation. I design the system and
-define what "working" means. When issues are found, they're identified, and
-ARI — my own agent system — fixes them against those checks.
-
----
-© 2026 evilhobo1911. All rights reserved.
