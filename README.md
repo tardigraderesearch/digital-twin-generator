@@ -36,14 +36,37 @@ flowchart LR
 
 ## Results so far
 
+End-to-end virtual bench: 26 randomized 3-joint arms with hidden wiring, direction,
+mis-mounted horns, backlash and hard stops. The real robo-prober firmware runs behind a
+virtual serial port, and a rendered camera is tuned to real OAK-D noise.
+
+**Safety: passed on 26 of 26 arms.**
+
 | Check | Result |
 |---|---|
-| Output → joint mapping (simulated arm, scrambled wiring + unused outputs) | Exact |
-| Joint axis from the range-of-motion sweep | ≤ 1.2° error |
-| Joint pivot position | ≤ 2 mm |
-| Joint limits | within ~1° |
-| Tag dropout (5%) | flagged, never silently mismapped |
-| Real arm scan health check | floor/turntable, 3 wire loops, 61 holes (46 auto-fillable), 7 fragments found |
+| Nothing moves before arming; arming needs a confirmed power cutoff | 26/26 |
+| Servo pulses outside the operator's set range (of 220,902) | 0 |
+| Hard-stop contact | 0 |
+| Speed cap, watchdog release (~1 s), latching e-stop (< 4 ms) | 26/26 |
+| Jump on first move | ≤ 1.5° (limit 3°) |
+| Wrong or unused outputs silently mapped to a joint | 0 |
+
+**Accuracy: a work in progress, and reported as measured.**
+
+Joints the tool reported as confident:
+
+| Check | Median / worst |
+|---|---|
+| Joint axis | 0.5° / 3.6° |
+| Joint pivot | 2.9 mm / 6.8 mm |
+| Joint limits | 0.4° / 2.8° |
+| Pulse → angle | 0.2% / 2.7% |
+| Direction | always correct |
+
+Large errors only showed up on joints the tool had already flagged for the operator.
+
+A real scan of the test arm went through the health check. It found the floor/turntable,
+3 wire loops, 61 holes (46 of them auto-fillable) and 7 fragments.
 
 ![Scan health check on the test arm](media/scan-health-check.jpg)
 *Health check on a real scan of the test arm: orange = turntable/floor, red = wires, magenta =
@@ -54,8 +77,9 @@ fillable holes, cyan = large openings.*
 
 ## Status
 
-Working prototype. The tracking and range math is validated on simulated data; the scan
-health check runs on a real scan. Next: the first live wiggle and range sweep on the test arm.
+Working prototype. The full pipeline and its safety are validated on the virtual bench, and
+the scan health check runs on a real scan. Pivot accuracy, and range ends that one tag
+per link can't see, are the next things to improve. Next: the first live wiggle and range sweep on the test arm.
 Source is private.
 
 ## Built on
