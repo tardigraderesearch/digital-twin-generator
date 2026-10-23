@@ -84,5 +84,5 @@ Source is private.
 
 ## Built on
 
-- [aruco-tag-maker](https://github.com/evilhobo1911/aruco-tag-maker) — the tags (open source)
-- [robo-prober](https://github.com/evilhobo1911/robo-prober) — safe servo control and range of motion (open source)
+- [aruco-tag-maker](https://github.com/tardigraderesearch/aruco-tag-maker) — the tags (open source)
+- [robo-prober](https://github.com/tardigraderesearch/robo-prober) — safe servo control and range of motion (open source)
