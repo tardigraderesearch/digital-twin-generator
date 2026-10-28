@@ -1,12 +1,12 @@
-# Digital Twin Generator
+<p align="center"><img src="media/banner.png" width="100%" alt="Digital Twin Generator: real robot in, simulation-ready model out"></p>
 
-**Put a hand-built robot on the desk and get back an exact computer model of it, ready for simulation.**
+**What it is.** Desktop software that turns a physical servo robot into a "digital twin", a model of *that exact robot* that a simulator can run.
+
+**What it does.** From a 3D scan and a camera watching the robot move, it works out which motor drives which joint, how far each joint can safely move, and the shape of every moving part. Then it writes the model file (URDF).
+
+**Why it matters.** Robots are usually trained in simulation before they touch the real world. Normally that needs CAD drawings and careful hand measurement; this tool measures the robot itself, safely, in one guided session.
 
 ![From a real robot arm to a simulation model](media/dtg-demo.gif)
-
-- **What it is:** desktop software that turns a physical servo robot into a "digital twin", a model of *that exact robot* that a simulator can run.
-- **What it does:** from a 3D scan and a camera watching the robot move, it works out which motor drives which joint, how far each joint can safely move, and the shape of every moving part. Then it writes the model file (URDF).
-- **Why it matters:** robots are usually trained in simulation before they touch the real world. Normally that needs CAD drawings and careful hand measurement; this tool measures the robot itself, safely, in one guided session.
 
 ## How it works
 
@@ -45,6 +45,6 @@ On a real scan of the test arm (310k faces), the health check found the turntabl
 
 ## Built with
 
-- [digital_twin_generator](https://github.com/tardigraderesearch/digital_twin_generator): the source code, with install and quickstart
+- [digital_twin_generator](https://github.com/tardigraderesearch/digital_twin_generator): the desktop app's source code, with install and quickstart
 - [aruco-tag-maker](https://github.com/tardigraderesearch/aruco-tag-maker): the printed tags
 - [robo_prober](https://github.com/tardigraderesearch/robo_prober): safe servo control and the controller firmware
